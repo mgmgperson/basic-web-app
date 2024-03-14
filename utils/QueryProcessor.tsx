@@ -23,7 +23,11 @@ export default function QueryProcessor(query: string): string {
     const numbers = query.match(/\d+/g);
     if (numbers) {
       const parsedNumbers = numbers.map(Number);
-      return (parsedNumbers[0] + parsedNumbers[1]).toString();
+      let sum = 0
+      for (let i = 0; i<numbers.length ;i++){
+        sum += parsedNumbers[i];
+      }
+      return sum.toString();
     }
   }
   if(query.toLowerCase().includes("square and a cube")){
