@@ -12,6 +12,14 @@ export default function QueryProcessor(query: string): string {
   if (query.toLowerCase().includes("name")) {
     return "albert";
   }
+  if (query.toLowerCase().includes("which of the following numbers is the largest")) {
+    const numbers = query.match(/\d+/g);
+    if (numbers) {
+      const parsedNumbers = numbers.map(Number);
+      return Math.max(...parsedNumbers).toString();
+    }
+  }
+
 
   return "";
 }
