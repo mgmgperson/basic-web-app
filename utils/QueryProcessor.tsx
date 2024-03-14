@@ -28,14 +28,16 @@ export default function QueryProcessor(query: string): string {
   }
   if(query.toLowerCase().includes("square and a cube")){
     const numbers = query.match(/\d+/g);
+    let numArr = [];
     if (numbers) {
       for (let i = 0; i<numbers.length ;i++){
         const parsedNumbers = numbers.map(Number);
         if (Math.sqrt(parsedNumbers[i]) % 1 === 0 && Math.cbrt(parsedNumbers[i]) % 1 === 0){
-          return parsedNumbers[i].toString();
+          numArr.push(parsedNumbers[i].toString());
         }
       }
     }
+    return numArr.join(", ");
   }
   if(query.toLowerCase().includes("multiplied")){
     const numbers = query.match(/\d+/g);
@@ -52,6 +54,8 @@ export default function QueryProcessor(query: string): string {
       return (parsedNumbers[0] - parsedNumbers[1]).toString();
     }
   }
+
+
 
 
 
