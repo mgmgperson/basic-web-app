@@ -55,6 +55,14 @@ export default function QueryProcessor(query: string): string {
     }
   }
 
+  if(query.toLowerCase().includes("power")){
+    const numbers = query.match(/\d+/g);
+    if (numbers) {
+      const parsedNumbers = numbers.map(Number);
+      return (Math.pow(parsedNumbers[0], parsedNumbers[1])).toString();
+    }
+  }
+
 
 
 
